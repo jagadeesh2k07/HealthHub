@@ -1,7 +1,6 @@
 <?php
 session_start();
 include '../db.php';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email    = trim($_POST['email']    ?? '');
     $password = $_POST['password']      ?? '';
@@ -11,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
     $row    = mysqli_fetch_assoc($result);
-
     if ($row && password_verify($password, $row['password'])) {
         $_SESSION['user_id']    = $row['id'];
         $_SESSION['first_name'] = $row['first_name'];
