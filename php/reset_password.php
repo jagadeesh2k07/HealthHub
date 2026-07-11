@@ -1,7 +1,6 @@
 <?php
 include '../db.php';
 $action = $_POST['action'] ?? '';
-
 if ($action === 'check_email') {
     $email = trim($_POST['email'] ?? '');
     $stmt  = mysqli_prepare($conn, "SELECT id FROM users WHERE email = ?");
@@ -13,7 +12,6 @@ if ($action === 'check_email') {
         : ['status'=>'error','message'=>'No account found with this email.']);
     exit();
 }
-
 if ($action === 'verify_password') {
     $email   = trim($_POST['email'] ?? '');
     $current = $_POST['currentPassword'] ?? '';
@@ -27,7 +25,6 @@ if ($action === 'verify_password') {
         : ['status'=>'error','message'=>'Incorrect current password.']);
     exit();
 }
-
 if ($action === 'reset') {
     $email   = trim($_POST['email'] ?? '');
     $newPw   = $_POST['newPassword'] ?? '';
