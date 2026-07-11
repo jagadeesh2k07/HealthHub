@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HealthHub — Your Health, Our Priority</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-heartbeat"></i>
+        <span>HealthHub</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#doctors">Doctors</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="login.html" class="btn-outline">Sign In</a>
+        <a href="register.html" class="btn-primary">Get Started</a>
+      </div>
+      <button class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-container">
+      <div class="hero-text">
+        <span class="hero-badge"><i class="fas fa-shield-heart"></i> Trusted Healthcare Platform</span>
+        <h1>Your Health,<br><span class="teal">Our Priority</span></h1>
+        <p>Book appointments with top doctors instantly. Manage your health journey with HealthHub — simple, fast, and reliable.</p>
+        <div class="hero-actions">
+          <a href="register.html" class="btn-primary btn-lg">Book Appointment <i class="fas fa-arrow-right"></i></a>
+          <a href="#doctors" class="btn-ghost btn-lg">View Doctors</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>50+</strong>
+            <span>Doctors</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <strong>1000+</strong>
+            <span>Patients</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <strong>10+</strong>
+            <span>Specializations</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-card">
+          <div class="hcard-top">
+            <div class="hcard-icon"><i class="fas fa-user-doctor"></i></div>
+            <div>
+              <p class="hcard-name">Dr. Arjun Sharma</p>
+              <p class="hcard-spec">Cardiologist</p>
+            </div>
+            <span class="hcard-badge">Available</span>
+          </div>
+          <div class="hcard-slots">
+            <span class="slot active">9:00 AM</span>
+            <span class="slot">10:00 AM</span>
+            <span class="slot active">11:00 AM</span>
+            <span class="slot">2:00 PM</span>
+          </div>
+          <a href="register.html" class="btn-primary" style="width:100%;text-align:center;display:block;margin-top:14px">Book Now</a>
+        </div>
+        <div class="hero-blob"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-label">Why HealthHub</div>
+      <h2 class="section-title">Everything you need for<br>better healthcare</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-calendar-check"></i></div>
+          <h3>Easy Booking</h3>
+          <p>Book appointments with your preferred doctor in just a few clicks, anytime anywhere.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
+          <h3>Secure & Private</h3>
+          <p>Your health data is encrypted and protected. We take your privacy seriously.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-clock"></i></div>
+          <h3>Flexible Scheduling</h3>
+          <p>Choose from available time slots that fit your schedule. Cancel up to 4 hours before.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-stethoscope"></i></div>
+          <h3>Top Specialists</h3>
+          <p>Access verified specialists across multiple fields — cardiology, dermatology, and more.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-bell"></i></div>
+          <h3>Instant Updates</h3>
+          <p>Get real-time updates on your appointment status directly on your dashboard.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Health Tracking</h3>
+          <p>Keep a record of all your past appointments and manage your health history.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCTORS PREVIEW -->
+  <section class="doctors-section" id="doctors">
+    <div class="container">
+      <div class="section-label">Our Specialists</div>
+      <h2 class="section-title">Meet our top doctors</h2>
+      <div class="doctors-grid">
+        <div class="doctor-card">
+          <div class="doctor-avatar"><i class="fas fa-user-doctor"></i></div>
+          <h3>Dr. Arjun Sharma</h3>
+          <p class="doc-spec">Cardiologist</p>
+          <p class="doc-exp"><i class="fas fa-briefcase-medical"></i> 10 years experience</p>
+          <p class="doc-fee"><i class="fas fa-indian-rupee-sign"></i> 500 per visit</p>
+          <a href="register.html" class="btn-primary" style="width:100%;text-align:center;display:block;margin-top:14px">Book Appointment</a>
+        </div>
+        <div class="doctor-card">
+          <div class="doctor-avatar"><i class="fas fa-user-doctor"></i></div>
+          <h3>Dr. Priya Nair</h3>
+          <p class="doc-spec">Dermatologist</p>
+          <p class="doc-exp"><i class="fas fa-briefcase-medical"></i> 7 years experience</p>
+          <p class="doc-fee"><i class="fas fa-indian-rupee-sign"></i> 400 per visit</p>
+          <a href="register.html" class="btn-primary" style="width:100%;text-align:center;display:block;margin-top:14px">Book Appointment</a>
+        </div>
+        <div class="doctor-card">
+          <div class="doctor-avatar"><i class="fas fa-user-doctor"></i></div>
+          <h3>Dr. Ravi Kumar</h3>
+          <p class="doc-spec">Neurologist</p>
+          <p class="doc-exp"><i class="fas fa-briefcase-medical"></i> 12 years experience</p>
+          <p class="doc-fee"><i class="fas fa-indian-rupee-sign"></i> 600 per visit</p>
+          <a href="register.html" class="btn-primary" style="width:100%;text-align:center;display:block;margin-top:14px">Book Appointment</a>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px">
+        <a href="register.html" class="btn-outline btn-lg">View All Doctors <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-text">
+          <div class="section-label">Contact Us</div>
+          <h2 class="section-title">Get in touch with us</h2>
+          <p>Have questions? Our team is here to help you 24/7.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>support@healthhub.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+91 9999999999</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-location-dot"></i>
+              <span>Kakinada, Andhra Pradesh, India</span>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" onsubmit="submitContact(event)">
+          <div class="form-group">
+            <input type="text" placeholder="Your Name" required/>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your Email" required/>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Your Message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-lg" style="width:100%">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo"><i class="fas fa-heartbeat"></i><span>HealthHub</span></div>
+          <p>Your trusted healthcare platform for booking appointments with top specialists.</p>
+        </div>
+        <div class="footer-links-col">
+          <h4>Quick Links</h4>
+          <a href="#home">Home</a>
+          <a href="#features">Features</a>
+          <a href="#doctors">Doctors</a>
+          <a href="login.html">Sign In</a>
+        </div>
+        <div class="footer-links-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 HealthHub. All rights reserved. Built by K Jagadeesh</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.navbar');
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Hamburger
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('open');
+    });
+
+    // Contact form
+    function submitContact(e) {
+      e.preventDefault();
+      alert('Message sent! We will get back to you soon.');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

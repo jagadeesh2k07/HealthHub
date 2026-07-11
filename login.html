@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign In — HealthHub</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body class="auth-page">
+
+  <div class="auth-wrap">
+
+    <!-- LEFT -->
+    <div class="auth-left">
+      <a href="index.html" class="auth-logo"><i class="fas fa-heartbeat"></i> HealthHub</a>
+      <div class="auth-left-content">
+        <h2>Welcome back to HealthHub</h2>
+        <p>Sign in to manage your appointments and connect with top healthcare specialists.</p>
+        <div class="auth-features">
+          <div class="auth-feature"><i class="fas fa-check-circle"></i> Book appointments instantly</div>
+          <div class="auth-feature"><i class="fas fa-check-circle"></i> Access your health history</div>
+          <div class="auth-feature"><i class="fas fa-check-circle"></i> Cancel up to 4 hours before</div>
+        </div>
+      </div>
+      <div class="auth-left-footer">© 2026 HealthHub. All rights reserved.</div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="auth-right">
+      <div class="auth-card">
+        <h1 class="auth-title">Sign In</h1>
+        <p class="auth-sub">Enter your credentials to access your account</p>
+
+        <form id="loginForm" novalidate>
+
+          <div class="field" id="grp-email">
+            <label for="email">Email address</label>
+            <div class="input-box">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="email" placeholder="you@example.com" autocomplete="email"/>
+            </div>
+            <span class="ferr" id="err-email"></span>
+          </div>
+
+          <div class="field" id="grp-pass">
+            <label for="password">
+              Password
+              <a href="#" class="forgot-link" id="forgotLink">Forgot password?</a>
+            </label>
+            <div class="input-box">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="password" placeholder="••••••••" autocomplete="current-password"/>
+              <button type="button" class="eye-btn" onclick="toggleEye('password','eye1')">
+                <i class="fas fa-eye" id="eye1"></i>
+              </button>
+            </div>
+            <span class="ferr" id="err-pass"></span>
+          </div>
+
+          <label class="chk-label">
+            <input type="checkbox" id="remember"/>
+            <span class="chk-box"></span>
+            Keep me signed in
+          </label>
+
+          <button type="submit" class="btn-submit" id="loginBtn">
+            <span id="loginTxt">Sign In</span>
+            <span id="loginLoad" class="spin hidden"><i class="fas fa-circle-notch fa-spin"></i></span>
+          </button>
+
+        </form>
+
+        <div class="toast hidden" id="toast"></div>
+        <p class="auth-switch">Don't have an account? <a href="register.html">Create one</a></p>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FORGOT PASSWORD MODAL -->
+  <div class="modal-overlay hidden" id="fpOverlay">
+    <div class="modal-card">
+      <button class="modal-close" id="fpClose"><i class="fas fa-times"></i></button>
+      <div class="modal-header">
+        <div class="modal-icon"><i class="fas fa-key"></i></div>
+        <h2>Reset Password</h2>
+        <p>Verify your identity to set a new password</p>
+      </div>
+
+      <div class="fp-step" id="fpStep1">
+        <div class="step-dots">
+          <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <div class="field" id="grp-fpemail">
+          <label>Email address</label>
+          <div class="input-box">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="fpEmail" placeholder="you@example.com"/>
+          </div>
+          <span class="ferr" id="err-fpemail"></span>
+        </div>
+        <button class="btn-submit" onclick="fpNext1()">
+          <span id="fpStep1Txt">Continue</span>
+          <span id="fpStep1Load" class="spin hidden"><i class="fas fa-circle-notch fa-spin"></i></span>
+        </button>
+      </div>
+
+      <div class="fp-step hidden" id="fpStep2">
+        <div class="step-dots">
+          <span class="dot done"></span><span class="dot active"></span><span class="dot"></span>
+        </div>
+        <div class="field" id="grp-fpcurr">
+          <label>Current password</label>
+          <div class="input-box">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="fpCurr" placeholder="Enter current password"/>
+            <button type="button" class="eye-btn" onclick="toggleEye('fpCurr','fpEye1')"><i class="fas fa-eye" id="fpEye1"></i></button>
+          </div>
+          <span class="ferr" id="err-fpcurr"></span>
+        </div>
+        <button class="btn-submit" onclick="fpNext2()">
+          <span id="fpStep2Txt">Verify</span>
+          <span id="fpStep2Load" class="spin hidden"><i class="fas fa-circle-notch fa-spin"></i></span>
+        </button>
+      </div>
+
+      <div class="fp-step hidden" id="fpStep3">
+        <div class="step-dots">
+          <span class="dot done"></span><span class="dot done"></span><span class="dot active"></span>
+        </div>
+        <div class="field" id="grp-fpnew">
+          <label>New password</label>
+          <div class="input-box">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="fpNew" placeholder="Min 8 characters"/>
+            <button type="button" class="eye-btn" onclick="toggleEye('fpNew','fpEye2')"><i class="fas fa-eye" id="fpEye2"></i></button>
+          </div>
+          <span class="ferr" id="err-fpnew"></span>
+        </div>
+        <div class="field" id="grp-fpconf">
+          <label>Confirm new password</label>
+          <div class="input-box">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="fpConf" placeholder="Re-enter new password"/>
+            <button type="button" class="eye-btn" onclick="toggleEye('fpConf','fpEye3')"><i class="fas fa-eye" id="fpEye3"></i></button>
+          </div>
+          <span class="ferr" id="err-fpconf"></span>
+          <span class="match-ok hidden" id="fp-match-ok"><i class="fas fa-check-circle"></i> Passwords match</span>
+        </div>
+        <button class="btn-submit" onclick="fpSubmit()">
+          <span id="fpStep3Txt">Update Password</span>
+          <span id="fpStep3Load" class="spin hidden"><i class="fas fa-circle-notch fa-spin"></i></span>
+        </button>
+      </div>
+
+      <div class="toast hidden" id="fp-toast"></div>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

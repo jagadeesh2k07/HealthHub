@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Account — HealthHub</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body class="auth-page">
+
+  <div class="auth-wrap">
+
+    <!-- LEFT -->
+    <div class="auth-left">
+      <a href="index.html" class="auth-logo"><i class="fas fa-heartbeat"></i> HealthHub</a>
+      <div class="auth-left-content">
+        <h2>Join HealthHub today</h2>
+        <p>Create your account and start booking appointments with top healthcare specialists in minutes.</p>
+        <div class="auth-features">
+          <div class="auth-feature"><i class="fas fa-check-circle"></i> Free to register</div>
+          <div class="auth-feature"><i class="fas fa-check-circle"></i> 50+ verified doctors</div>
+          <div class="auth-feature"><i class="fas fa-check-circle"></i> Instant appointment booking</div>
+        </div>
+      </div>
+      <div class="auth-left-footer">© 2026 HealthHub. All rights reserved.</div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="auth-right">
+      <div class="auth-card auth-card--wide">
+        <h1 class="auth-title">Create Account</h1>
+        <p class="auth-sub">Fill in your details to get started</p>
+
+        <form id="registerForm" novalidate>
+
+          <div class="row2">
+            <div class="field" id="grp-fname">
+              <label for="fname">First name</label>
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" id="fname" placeholder="Jagadeesh" autocomplete="given-name"/>
+              </div>
+              <span class="ferr" id="err-fname"></span>
+            </div>
+            <div class="field" id="grp-lname">
+              <label for="lname">Last name</label>
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" id="lname" placeholder="K" autocomplete="family-name"/>
+              </div>
+              <span class="ferr" id="err-lname"></span>
+            </div>
+          </div>
+
+          <div class="field" id="grp-remail">
+            <label for="remail">Email address</label>
+            <div class="input-box">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="remail" placeholder="you@example.com" autocomplete="email"/>
+            </div>
+            <span class="ferr" id="err-remail"></span>
+            <span class="hint" id="hint-email"></span>
+          </div>
+
+          <div class="field" id="grp-phone">
+            <label for="phone">Phone <span class="opt">(optional)</span></label>
+            <div class="input-box">
+              <i class="fas fa-phone"></i>
+              <input type="tel" id="phone" placeholder="+91 9XXXXXXXXX" autocomplete="tel"/>
+            </div>
+            <span class="ferr" id="err-phone"></span>
+          </div>
+
+          <div class="field" id="grp-rpw">
+            <label for="rpw">Password</label>
+            <div class="input-box">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="rpw" placeholder="Min 8 characters" autocomplete="new-password"/>
+              <button type="button" class="eye-btn" onclick="toggleEye('rpw','eye2')">
+                <i class="fas fa-eye" id="eye2"></i>
+              </button>
+            </div>
+            <ul class="pw-rules">
+              <li id="rule-len"><i class="fas fa-circle"></i> At least 8 characters</li>
+              <li id="rule-upper"><i class="fas fa-circle"></i> One uppercase letter</li>
+              <li id="rule-num"><i class="fas fa-circle"></i> One number</li>
+              <li id="rule-symbol"><i class="fas fa-circle"></i> One special character</li>
+            </ul>
+            <div class="str-bar"><div class="str-fill" id="str-fill"></div></div>
+            <span class="str-txt" id="str-txt"></span>
+            <span class="ferr" id="err-rpw"></span>
+          </div>
+
+          <div class="field" id="grp-cpw">
+            <label for="cpw">Confirm password</label>
+            <div class="input-box">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="cpw" placeholder="Re-enter password" autocomplete="new-password"/>
+              <button type="button" class="eye-btn" onclick="toggleEye('cpw','eye3')">
+                <i class="fas fa-eye" id="eye3"></i>
+              </button>
+            </div>
+            <span class="ferr" id="err-cpw"></span>
+            <span class="match-ok hidden" id="match-ok"><i class="fas fa-check-circle"></i> Passwords match</span>
+          </div>
+
+          <div class="field" id="grp-terms">
+            <label class="chk-label">
+              <input type="checkbox" id="terms"/>
+              <span class="chk-box"></span>
+              I agree to the <a href="#">Terms</a> &amp; <a href="#">Privacy Policy</a>
+            </label>
+            <span class="ferr" id="err-terms"></span>
+          </div>
+
+          <button type="submit" class="btn-submit" id="regBtn">
+            <span id="regTxt">Create Account</span>
+            <span id="regLoad" class="spin hidden"><i class="fas fa-circle-notch fa-spin"></i></span>
+          </button>
+
+        </form>
+
+        <div class="toast hidden" id="reg-toast"></div>
+        <p class="auth-switch">Already have an account? <a href="login.html">Sign in</a></p>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>
