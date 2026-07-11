@@ -1,7 +1,6 @@
 <?php
 session_start();
 include '../db.php';
-
 if (!isset($_SESSION['user_id'])) {
     echo json_encode(['status'=>'error','message'=>'Please login first.']); exit();
 }
@@ -15,7 +14,6 @@ if (!$doctor_id || !$date || !$time) {
     echo json_encode(['status'=>'error','message'=>'All fields are required.']); exit();
 }
 
-// Check if slot already booked
 $check = mysqli_prepare($conn, "SELECT id FROM appointments WHERE doctor_id=? AND appointment_date=? AND appointment_time=? AND status != 'cancelled'");
 mysqli_stmt_bind_param($check, 'iss', $doctor_id, $date, $time);
 mysqli_stmt_execute($check);
