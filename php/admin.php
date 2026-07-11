@@ -1,7 +1,6 @@
 <?php
 session_start();
 include '../db.php';
-
 if (!isset($_SESSION['user_id'])) { header("Location: ../login.html"); exit(); }
 if ($_SESSION['role'] !== 'admin') { header("Location: dashboard.php"); exit(); }
 
@@ -10,8 +9,6 @@ $user = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt = (function() use ($conn
     $s = mysqli_prepare($conn, "SELECT * FROM users WHERE id = ?");
     mysqli_stmt_bind_param($s, 'i', $uid); mysqli_stmt_execute($s); return $s;
 })()));
-
-// Stats
 $totalUsers    = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) c FROM users"))['c'];
 $totalDoctors  = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) c FROM doctors"))['c'];
 $totalAppts    = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) c FROM appointments"))['c'];
@@ -19,17 +16,14 @@ $pendingAppts  = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) c FROM 
 $todayAppts    = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) c FROM appointments WHERE appointment_date = CURDATE()"))['c'];
 $cancelledAppts= mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) c FROM appointments WHERE status='cancelled'"))['c'];
 
-// All appointments
 $allAppts = mysqli_query($conn, "SELECT a.*, u.first_name, u.last_name, u.email AS patient_email, d.name AS doctor_name, d.specialization
     FROM appointments a
     JOIN users u ON a.patient_id = u.id
     JOIN doctors d ON a.doctor_id = d.id
     ORDER BY a.appointment_date DESC, a.appointment_time DESC");
 
-// All doctors
 $allDoctors = mysqli_query($conn, "SELECT * FROM doctors ORDER BY name ASC");
 
-// All users
 $allUsers = mysqli_query($conn, "SELECT * FROM users ORDER BY created_at DESC");
 ?>
 <!DOCTYPE html>
