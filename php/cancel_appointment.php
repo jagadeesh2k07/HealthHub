@@ -10,7 +10,6 @@ $id   = intval($_POST['id'] ?? 0);
 $role = $_SESSION['role'];
 $uid  = $_SESSION['user_id'];
 
-// Fetch appointment
 $stmt = mysqli_prepare($conn, "SELECT * FROM appointments WHERE id = ?");
 mysqli_stmt_bind_param($stmt, 'i', $id);
 mysqli_stmt_execute($stmt);
@@ -21,7 +20,6 @@ if (!$appt) {
     echo json_encode(['status'=>'error','message'=>'Appointment not found.']); exit();
 }
 
-// Patient cancellation: must be 4+ hours before appointment
 if ($role === 'patient') {
     if ($appt['patient_id'] !== $uid) {
         echo json_encode(['status'=>'error','message'=>'Unauthorized.']); exit();
