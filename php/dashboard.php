@@ -7,20 +7,17 @@ if ($_SESSION['role'] === 'admin') { header("Location: admin.php"); exit(); }
 
 $uid = $_SESSION['user_id'];
 
-// Fetch user
 $stmt = mysqli_prepare($conn, "SELECT * FROM users WHERE id = ?");
 mysqli_stmt_bind_param($stmt, 'i', $uid);
 mysqli_stmt_execute($stmt);
 $user = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt));
 
-// Fetch appointments
 $appts = mysqli_query($conn, "SELECT a.*, d.name AS doctor_name, d.specialization, d.fee
     FROM appointments a
     JOIN doctors d ON a.doctor_id = d.id
     WHERE a.patient_id = $uid
     ORDER BY a.appointment_date DESC, a.appointment_time DESC");
 
-// Stats
 $total    = mysqli_num_rows($appts);
 $pending  = 0; $confirmed = 0; $cancelled = 0;
 $apptList = [];
@@ -32,7 +29,6 @@ while ($r = mysqli_fetch_assoc($appts)) {
     if ($r['status'] === 'cancelled') $cancelled++;
 }
 
-// Fetch doctors for booking
 $doctors = mysqli_query($conn, "SELECT * FROM doctors ORDER BY name ASC");
 ?>
 <!DOCTYPE html>
