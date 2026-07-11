@@ -36,7 +36,6 @@ function toggleEye(inputId,iconId){
   icon.className=show?'fas fa-eye-slash':'fas fa-eye';
 }
 
-/* ── PASSWORD RULES ── */
 function getRules(pw){
   return{len:pw.length>=8,upper:/[A-Z]/.test(pw),num:/[0-9]/.test(pw),sym:/[^A-Za-z0-9]/.test(pw)};
 }
@@ -72,11 +71,9 @@ function matchCheck(pw,cpw,grp,errId,matchId){
   else{setErr(grp,errId,'Passwords do not match.');if(ok)ok.classList.add('hidden');}
 }
 
-/* ══ LOGIN ══ */
 (function initLogin(){
   const form=$('loginForm');if(!form)return;
 
-  // forgot password modal
   const flink=$('forgotLink');
   if(flink)flink.addEventListener('click',e=>{
     e.preventDefault();
@@ -131,7 +128,6 @@ function matchCheck(pw,cpw,grp,errId,matchId){
   });
 })();
 
-/* ══ REGISTER ══ */
 (function initRegister(){
   const form=$('registerForm');if(!form)return;
 
@@ -221,7 +217,6 @@ function matchCheck(pw,cpw,grp,errId,matchId){
   });
 })();
 
-/* ── EMAIL AJAX CHECK ── */
 function checkEmailAjax(val,hintId){
   const hint=$(hintId);if(!hint)return;
   hint.style.color='var(--text3)';hint.textContent='Checking…';
@@ -235,7 +230,6 @@ function checkEmailAjax(val,hintId){
     .catch(()=>{hint.textContent='';});
 }
 
-/* ── FORGOT PASSWORD ── */
 function closeModal(){
   const ov=$('fpOverlay');if(ov)ov.classList.add('hidden');
   ['fpStep1','fpStep2','fpStep3'].forEach((id,i)=>{
