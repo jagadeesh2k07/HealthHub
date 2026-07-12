@@ -2,7 +2,7 @@
 
 A full-stack Doctor Appointment Booking System where patients can register, browse doctors, book appointments, and cancel within policy — with a full admin panel to manage everything.
 
-## ✨ Features
+## ✨ Features of HealthHub
 
 - Secure login/register with hashed passwords & PHP sessions
 - Role-based access — Patient & Admin
