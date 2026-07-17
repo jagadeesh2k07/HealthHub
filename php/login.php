@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['last_name']  = $row['last_name'];
         $_SESSION['role']       = $row['role'];
 
-        $redirect = $row['role'] === 'admin' ? 'admin.php' : 'dashboard.php';
+        $redirect = $row['role'] === 'admin' ? 'php/admin.php' : 'php/dashboard.php';
         echo json_encode(['status'=>'success','message'=>'Login successful!','redirect'=>$redirect]);
     } elseif (!$row) {
         echo json_encode(['status'=>'error','message'=>'No account found with this email.']);
