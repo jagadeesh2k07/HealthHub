@@ -5,7 +5,7 @@ A full-stack Doctor Appointment Booking System where patients can register, brow
 ## 🔗 Live Links
 
 - **Live App (fully functional):** [healthhub.free.je](http://healthhub.free.je) — PHP + MySQL backend, all features work here
-- **UI Preview only (static, no backend):** [healthhub-ten.vercel.app](https://healthhub-ten.vercel.app/) — frontend pages only; login/register/booking will not work here since Vercel doesn't run PHP
+- **UI Preview only (static, no backend):** [healthhub](https://healthhub-5p1rmtzki-jagadeesh2k07s-projects.vercel.app/) — frontend pages only; login/register/booking will not work here since Vercel doesn't run PHP
 
 ## ✨ Features
 
