@@ -1,6 +1,6 @@
 # 🏥 HealthHub
 
-A full-stack Doctor Appointment Booking System where patients can register, browse doctors, book appointments, and cancel within policy — with a full admin panel to manage everything.
+A Full-stack Doctor Appointment Booking System where patients can register, browse doctors, book appointments, and cancel within policy — with a full admin panel to manage everything.
 
 ## 🔗 Live Links
 
